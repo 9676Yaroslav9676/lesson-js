@@ -11,9 +11,6 @@ document.write(`start = 3<br>${group1}<br>`);
 let group3 = group1.concat(group2);
 document.write(`start = 4<br>${group3}<br>`);
 
-for(let value of group3){
-   let word1 = value[0].length;
 
-}
 
 
