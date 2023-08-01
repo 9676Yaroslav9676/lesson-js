@@ -4,33 +4,35 @@ let digitsArray = numberString.split("");
 console.log(digitsArray);
 
 let divNumber;
-let number = 1;
-let count = 0;
+let count = 1;
+
+function handleNuber(e, value) {
+  for (let i = 0; i < 1; i++) {
+    count += 1;
+    if (count > 9) {
+      count = 0;
+    }
+    let textContent = count;
+    e.target.textContent = textContent;
+    if (count == value) {
+      e.target.classList.add("red");
+      e.target.style.cursor = "not-allowed";
+      e.target.onclick = null;
+      count = 1;
+    }
+  }
+}
 
 for (let value of digitsArray) {
-  for (let i = 0; i < 4; i++) {
-    divNumber = document.createElement("div");
-    divNumber.classList.add("digit");
-    divNumber.textContent = number;
-    if (value == number) {
-      divNumber.classList.add("red");
-      divNumber.style.cursor = "not-allowed";
-    }
-    divNumber.addEventListener("click", (e) => {
-      for (let j = 0; j < 1; j++) {
-        count += 1;
-        if (count > 9) {
-          count = 0;
-        }
-        number = count;
-        e.target.textContent = number;
-        if (count == value) {
-          e.target.classList.add("red");
-          e.target.style.cursor = "not-allowed";
-          count = 0;
-        }
-      }
-    });
+  divNumber = document.createElement("div");
+  divNumber.classList.add("digit");
+  divNumber.textContent = count;
+  if (value == count) {
+    divNumber.classList.add("red");
+    divNumber.style.cursor = "not-allowed";
+  }
+  if (value != 1) {
+    divNumber.onclick = (e) => handleNuber(e, value);
   }
 
   document.body.appendChild(divNumber);
