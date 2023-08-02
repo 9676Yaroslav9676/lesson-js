@@ -12,7 +12,7 @@ let button = document.createElement("button");
 button.style.margin = "0px auto";
 button.style.cursor = "pointer";
 button.textContent = "Старт";
-button.onclick = result;
+button.onclick = () => setTimeout(result, 2000);
 
 var count = 0;
 
